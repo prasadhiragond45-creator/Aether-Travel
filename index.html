@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aether Travel – Premium luxury travel experiences crafted for the discerning explorer. Book world-class destinations, exclusive packages, and unforgettable journeys." />
+  <meta name="keywords" content="luxury travel, premium holidays, exclusive destinations, travel booking, aether travel" />
+  <meta name="author" content="Aether Travel" />
+  <meta property="og:title" content="Aether Travel – Travel Beyond Imagination" />
+  <meta property="og:description" content="Discover extraordinary destinations and premium travel experiences." />
+  <meta property="og:type" content="website" />
+  <title>Aether Travel – Travel Beyond Imagination</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ LOADING SCREEN ═══ -->
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-logo">✦ AETHER</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <div class="loader-text">Crafting your journey...</div>
+    </div>
+  </div>
+
+  <!-- ═══ SCROLL PROGRESS ═══ -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header id="navbar" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" id="nav-logo-link" aria-label="Aether Travel Home">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">AETHER <span class="logo-travel">TRAVEL</span></span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#destinations" class="nav-link">Destinations</a></li>
+        <li><a href="#experiences" class="nav-link">Experiences</a></li>
+        <li><a href="#packages" class="nav-link">Packages</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i data-lucide="sun" class="icon-sun"></i>
+          <i data-lucide="moon" class="icon-moon"></i>
+        </button>
+        <button class="btn-login" id="login-btn">Login</button>
+        <a href="#search" class="btn-primary" id="book-now-btn">Book Now</a>
+        <button class="hamburger" id="hamburger" aria-label="Open mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#hero" class="mobile-link">Home</a></li>
+        <li><a href="#destinations" class="mobile-link">Destinations</a></li>
+        <li><a href="#experiences" class="mobile-link">Experiences</a></li>
+        <li><a href="#packages" class="mobile-link">Packages</a></li>
+        <li><a href="#reviews" class="mobile-link">Reviews</a></li>
+        <li><a href="#about" class="mobile-link">About</a></li>
+      </ul>
+      <a href="#search" class="btn-primary mobile-cta">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══ HERO SECTION ═══ -->
+    <section id="hero" class="hero" aria-label="Hero">
+      <div class="hero-bg">
+        <img src="images/hero_background.png" alt="Cinematic mountain landscape with alpine lake" class="hero-img" id="hero-parallax-img" loading="eager" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <!-- Floating decorative elements -->
+      <div class="float-el float-el-1" aria-hidden="true">✦</div>
+      <div class="float-el float-el-2" aria-hidden="true">◆</div>
+      <div class="float-el float-el-3" aria-hidden="true">✦</div>
+
+      <div class="hero-content container">
+        <div class="hero-left" data-gsap="fade-up">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Premium Travel Since 2005</span>
+          </div>
+          <h1 class="hero-heading">
+            Travel Beyond<br /><em>Imagination</em>
+          </h1>
+          <p class="hero-subtitle">Discover handcrafted luxury experiences across 150+ breathtaking destinations. Your extraordinary journey begins here.</p>
+          <div class="hero-ctas">
+            <a href="#destinations" class="btn-primary btn-lg" id="explore-btn">
+              <i data-lucide="compass"></i>
+              Explore Destinations
+            </a>
+            <button class="btn-video" id="video-btn" aria-label="Watch travel video">
+              <span class="play-circle"><i data-lucide="play"></i></span>
+              <span>Watch Story</span>
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-label="Scroll down">
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ═══ SEARCH BOX ═══ -->
+    <section id="search" class="search-section" aria-label="Search flights and stays">
+      <div class="container">
+        <div class="search-box" data-gsap="fade-up">
+          <div class="search-tabs">
+            <button class="search-tab active" data-tab="hotels" id="tab-hotels">🏨 Hotels</button>
+            <button class="search-tab" data-tab="flights" id="tab-flights">✈️ Flights</button>
+            <button class="search-tab" data-tab="packages" id="tab-packages-search">📦 Packages</button>
+          </div>
+          <div class="search-fields">
+            <div class="search-field">
+              <label for="search-destination" class="field-label"><i data-lucide="map-pin"></i> Destination</label>
+              <input type="text" id="search-destination" class="field-input" placeholder="Where to?" autocomplete="off" />
+            </div>
+            <div class="field-sep"></div>
+            <div class="search-field">
+              <label for="search-checkin" class="field-label"><i data-lucide="calendar"></i> Check In</label>
+              <input type="date" id="search-checkin" class="field-input" />
+            </div>
+            <div class="field-sep"></div>
+            <div class="search-field">
+              <label for="search-checkout" class="field-label"><i data-lucide="calendar-check"></i> Check Out</label>
+              <input type="date" id="search-checkout" class="field-input" />
+            </div>
+            <div class="field-sep"></div>
+            <div class="search-field">
+              <label for="search-guests" class="field-label"><i data-lucide="users"></i> Guests</label>
+              <select id="search-guests" class="field-input">
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests</option>
+              </select>
+            </div>
+            <button class="btn-search" id="search-submit-btn" aria-label="Search destinations">
+              <i data-lucide="search"></i>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TOP DESTINATIONS ═══ -->
+    <section id="destinations" class="section destinations-section" aria-labelledby="destinations-heading">
+      <div class="container">
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-tag">✦ Top Picks</div>
+          <h2 id="destinations-heading" class="section-title">Top Destinations</h2>
+          <p class="section-subtitle">Handpicked luxury escapes from our curators — each destination a world unto itself.</p>
+        </div>
+        <div class="destinations-grid" role="list">
+
+          <article class="dest-card dest-card-large" role="listitem" data-gsap="fade-up" style="--delay:0.1s">
+            <div class="dest-img-wrap">
+              <img src="images/dest_santorini.png" alt="Santorini, Greece — white and blue architecture overlooking the Aegean" class="dest-img" loading="lazy" />
+            </div>
+            <div class="dest-overlay">
+              <button class="wishlist-btn" aria-label="Add Santorini to wishlist"><i data-lucide="heart"></i></button>
+              <div class="dest-info">
+                <div class="dest-rating"><span>★</span> 4.9</div>
+                <h3 class="dest-name">Santorini</h3>
+                <p class="dest-country"><i data-lucide="map-pin"></i> Greece</p>
+                <a href="#packages" class="dest-cta">Explore <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="dest-card" role="listitem" data-gsap="fade-up" style="--delay:0.2s">
+            <div class="dest-img-wrap">
+              <img src="images/dest_maldives.png" alt="Maldives — overwater bungalows and crystal lagoon" class="dest-img" loading="lazy" />
+            </div>
+            <div class="dest-overlay">
+              <button class="wishlist-btn" aria-label="Add Maldives to wishlist"><i data-lucide="heart"></i></button>
+              <div class="dest-info">
+                <div class="dest-rating"><span>★</span> 5.0</div>
+                <h3 class="dest-name">Maldives</h3>
+                <p class="dest-country"><i data-lucide="map-pin"></i> Indian Ocean</p>
+                <a href="#packages" class="dest-cta">Explore <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="dest-card" role="listitem" data-gsap="fade-up" style="--delay:0.3s">
+            <div class="dest-img-wrap">
+              <img src="images/dest_bali.png" alt="Bali, Indonesia — rice terraces and ancient temples" class="dest-img" loading="lazy" />
+            </div>
+            <div class="dest-overlay">
+              <button class="wishlist-btn" aria-label="Add Bali to wishlist"><i data-lucide="heart"></i></button>
+              <div class="dest-info">
+                <div class="dest-rating"><span>★</span> 4.8</div>
+                <h3 class="dest-name">Bali</h3>
+                <p class="dest-country"><i data-lucide="map-pin"></i> Indonesia</p>
+                <a href="#packages" class="dest-cta">Explore <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="dest-card" role="listitem" data-gsap="fade-up" style="--delay:0.4s">
+            <div class="dest-img-wrap">
+              <img src="images/dest_switzerland.png" alt="Switzerland — Swiss Alps and alpine meadows" class="dest-img" loading="lazy" />
+            </div>
+            <div class="dest-overlay">
+              <button class="wishlist-btn" aria-label="Add Switzerland to wishlist"><i data-lucide="heart"></i></button>
+              <div class="dest-info">
+                <div class="dest-rating"><span>★</span> 4.9</div>
+                <h3 class="dest-name">Switzerland</h3>
+                <p class="dest-country"><i data-lucide="map-pin"></i> Europe</p>
+                <a href="#packages" class="dest-cta">Explore <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="dest-card" role="listitem" data-gsap="fade-up" style="--delay:0.5s">
+            <div class="dest-img-wrap">
+              <img src="images/dest_dubai.png" alt="Dubai, UAE — futuristic skyline and Burj Khalifa" class="dest-img" loading="lazy" />
+            </div>
+            <div class="dest-overlay">
+              <button class="wishlist-btn" aria-label="Add Dubai to wishlist"><i data-lucide="heart"></i></button>
+              <div class="dest-info">
+                <div class="dest-rating"><span>★</span> 4.7</div>
+                <h3 class="dest-name">Dubai</h3>
+                <p class="dest-country"><i data-lucide="map-pin"></i> UAE</p>
+                <a href="#packages" class="dest-cta">Explore <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="dest-card" role="listitem" data-gsap="fade-up" style="--delay:0.6s">
+            <div class="dest-img-wrap">
+              <img src="images/dest_iceland.png" alt="Iceland — Northern Lights Aurora Borealis" class="dest-img" loading="lazy" />
+            </div>
+            <div class="dest-overlay">
+              <button class="wishlist-btn" aria-label="Add Iceland to wishlist"><i data-lucide="heart"></i></button>
+              <div class="dest-info">
+                <div class="dest-rating"><span>★</span> 4.8</div>
+                <h3 class="dest-name">Iceland</h3>
+                <p class="dest-country"><i data-lucide="map-pin"></i> Northern Europe</p>
+                <a href="#packages" class="dest-cta">Explore <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ POPULAR PACKAGES ═══ -->
+    <section id="packages" class="section packages-section" aria-labelledby="packages-heading">
+      <div class="container">
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-tag">✦ Hot Deals</div>
+          <h2 id="packages-heading" class="section-title">Popular Packages</h2>
+          <p class="section-subtitle">Curated luxury bundles with exclusive perks, premium stays, and unforgettable itineraries.</p>
+        </div>
+        <div class="packages-grid">
+
+          <article class="pkg-card" data-gsap="fade-up" style="--delay:0.1s">
+            <div class="pkg-img-wrap">
+              <img src="images/dest_maldives.png" alt="Maldives Luxury Package" class="pkg-img" loading="lazy" />
+              <div class="pkg-badge">-25% OFF</div>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-meta">
+                <span class="pkg-duration"><i data-lucide="clock"></i> 7 Nights</span>
+                <div class="pkg-stars">★★★★★ <span>5.0</span></div>
+              </div>
+              <h3 class="pkg-title">Maldives Overwater Bliss</h3>
+              <p class="pkg-desc">Private overwater villa, snorkeling, sunset cruise & gourmet dining included.</p>
+              <div class="pkg-footer">
+                <div class="pkg-price">
+                  <span class="price-current">₹1,89,999</span>
+                  <span class="price-old">₹2,53,000</span>
+                </div>
+                <button class="btn-book" id="pkg-book-1">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card" data-gsap="fade-up" style="--delay:0.2s">
+            <div class="pkg-img-wrap">
+              <img src="images/dest_santorini.png" alt="Santorini Romance Package" class="pkg-img" loading="lazy" />
+              <div class="pkg-badge pkg-badge-accent">Best Seller</div>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-meta">
+                <span class="pkg-duration"><i data-lucide="clock"></i> 5 Nights</span>
+                <div class="pkg-stars">★★★★★ <span>4.9</span></div>
+              </div>
+              <h3 class="pkg-title">Santorini Romance Escape</h3>
+              <p class="pkg-desc">Cave suite, private pool, wine tasting, and caldera sunset dinners for two.</p>
+              <div class="pkg-footer">
+                <div class="pkg-price">
+                  <span class="price-current">₹1,44,999</span>
+                  <span class="price-old">₹1,90,000</span>
+                </div>
+                <button class="btn-book" id="pkg-book-2">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card" data-gsap="fade-up" style="--delay:0.3s">
+            <div class="pkg-img-wrap">
+              <img src="images/dest_bali.png" alt="Bali Cultural Immersion Package" class="pkg-img" loading="lazy" />
+              <div class="pkg-badge pkg-badge-green">New</div>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-meta">
+                <span class="pkg-duration"><i data-lucide="clock"></i> 8 Nights</span>
+                <div class="pkg-stars">★★★★½ <span>4.8</span></div>
+              </div>
+              <h3 class="pkg-title">Bali Cultural Immersion</h3>
+              <p class="pkg-desc">Rice terrace trekking, temple ceremonies, traditional spa, and jungle villa stay.</p>
+              <div class="pkg-footer">
+                <div class="pkg-price">
+                  <span class="price-current">₹98,999</span>
+                  <span class="price-old">₹1,32,000</span>
+                </div>
+                <button class="btn-book" id="pkg-book-3">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="pkg-card" data-gsap="fade-up" style="--delay:0.4s">
+            <div class="pkg-img-wrap">
+              <img src="images/dest_iceland.png" alt="Iceland Northern Lights Package" class="pkg-img" loading="lazy" />
+              <div class="pkg-badge">-30% OFF</div>
+            </div>
+            <div class="pkg-body">
+              <div class="pkg-meta">
+                <span class="pkg-duration"><i data-lucide="clock"></i> 6 Nights</span>
+                <div class="pkg-stars">★★★★★ <span>4.9</span></div>
+              </div>
+              <h3 class="pkg-title">Iceland Aurora Adventure</h3>
+              <p class="pkg-desc">Northern Lights hunt, glacier hike, geothermal spa & glass-ceiling igloo suite.</p>
+              <div class="pkg-footer">
+                <div class="pkg-price">
+                  <span class="price-current">₹1,69,999</span>
+                  <span class="price-old">₹2,42,000</span>
+                </div>
+                <button class="btn-book" id="pkg-book-4">Book Now</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <div class="packages-cta" data-gsap="fade-up">
+          <a href="#" class="btn-outline">View All Packages <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WHY CHOOSE US ═══ -->
+    <section id="experiences" class="section features-section" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-tag">✦ Our Promise</div>
+          <h2 id="features-heading" class="section-title">Why Choose Aether</h2>
+          <p class="section-subtitle">Six pillars that make us the world's most trusted luxury travel partner.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feature-card" data-gsap="fade-up" style="--delay:0.1s">
+            <div class="feature-icon-wrap">
+              <i data-lucide="badge-dollar-sign"></i>
+            </div>
+            <h3 class="feature-title">Best Price Guarantee</h3>
+            <p class="feature-desc">We match any verified lower price — always giving you the best value without compromise.</p>
+          </div>
+
+          <div class="feature-card" data-gsap="fade-up" style="--delay:0.2s">
+            <div class="feature-icon-wrap">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h3 class="feature-title">Secure Booking</h3>
+            <p class="feature-desc">256-bit SSL encryption and PCI-compliant payments protect every transaction.</p>
+          </div>
+
+          <div class="feature-card" data-gsap="fade-up" style="--delay:0.3s">
+            <div class="feature-icon-wrap">
+              <i data-lucide="zap"></i>
+            </div>
+            <h3 class="feature-title">Instant Confirmation</h3>
+            <p class="feature-desc">Receive real-time booking confirmations with detailed itineraries within seconds.</p>
+          </div>
+
+          <div class="feature-card" data-gsap="fade-up" style="--delay:0.4s">
+            <div class="feature-icon-wrap">
+              <i data-lucide="globe"></i>
+            </div>
+            <h3 class="feature-title">Worldwide Destinations</h3>
+            <p class="feature-desc">Access to 150+ handpicked destinations across 60 countries on every continent.</p>
+          </div>
+
+          <div class="feature-card" data-gsap="fade-up" style="--delay:0.5s">
+            <div class="feature-icon-wrap">
+              <i data-lucide="headphones"></i>
+            </div>
+            <h3 class="feature-title">24 / 7 Support</h3>
+            <p class="feature-desc">Our dedicated concierge team is available around the clock wherever you travel.</p>
+          </div>
+
+          <div class="feature-card" data-gsap="fade-up" style="--delay:0.6s">
+            <div class="feature-icon-wrap">
+              <i data-lucide="refresh-ccw"></i>
+            </div>
+            <h3 class="feature-title">Easy Cancellation</h3>
+            <p class="feature-desc">Flexible cancellation up to 48 hours before departure — zero stress, full peace of mind.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATISTICS ═══ -->
+    <section id="about" class="stats-section" aria-labelledby="stats-heading">
+      <div class="stats-overlay"></div>
+      <div class="container">
+        <div class="stats-header" data-gsap="fade-up">
+          <div class="section-tag light">✦ Our Impact</div>
+          <h2 id="stats-heading" class="section-title light">Numbers That Tell Our Story</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item" data-gsap="fade-up" style="--delay:0.1s">
+            <div class="stat-number" data-target="50000" data-suffix="K+">0</div>
+            <div class="stat-label">Happy Travelers</div>
+          </div>
+          <div class="stat-item" data-gsap="fade-up" style="--delay:0.2s">
+            <div class="stat-number" data-target="150" data-suffix="+">0</div>
+            <div class="stat-label">Destinations</div>
+          </div>
+          <div class="stat-item" data-gsap="fade-up" style="--delay:0.3s">
+            <div class="stat-number" data-target="4.9" data-suffix="★" data-decimal="true">0</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+          <div class="stat-item" data-gsap="fade-up" style="--delay:0.4s">
+            <div class="stat-number" data-target="20" data-suffix="+">0</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CUSTOMER REVIEWS ═══ -->
+    <section id="reviews" class="section reviews-section" aria-labelledby="reviews-heading">
+      <div class="container">
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-tag">✦ Testimonials</div>
+          <h2 id="reviews-heading" class="section-title">What Travelers Say</h2>
+          <p class="section-subtitle">Real stories from our community of 50,000+ adventurers worldwide.</p>
+        </div>
+        <div class="reviews-carousel" data-gsap="fade-up">
+          <div class="reviews-track" id="reviews-track">
+
+            <div class="review-card">
+              <div class="review-header">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=b6e3f4" alt="Priya Sharma" class="review-avatar" />
+                <div class="review-meta">
+                  <div class="review-name">Priya Sharma</div>
+                  <div class="review-location"><i data-lucide="map-pin"></i> Mumbai, India</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">"Aether Travel planned our honeymoon in Maldives flawlessly. Every detail was perfection — from the private villa to the underwater dining experience. We'll treasure this forever."</p>
+              <div class="review-trip"><i data-lucide="plane"></i> Maldives Honeymoon · 2024</div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-header">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=c0aede" alt="Marcus Johnson" class="review-avatar" />
+                <div class="review-meta">
+                  <div class="review-name">Marcus Johnson</div>
+                  <div class="review-location"><i data-lucide="map-pin"></i> New York, USA</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">"The Iceland package was beyond anything I imagined. Watching the Northern Lights from our glass igloo suite was life-changing. Aether's attention to detail is unmatched."</p>
+              <div class="review-trip"><i data-lucide="plane"></i> Iceland Aurora Tour · 2024</div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-header">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sophie&backgroundColor=ffd5dc" alt="Sophie Laurent" class="review-avatar" />
+                <div class="review-meta">
+                  <div class="review-name">Sophie Laurent</div>
+                  <div class="review-location"><i data-lucide="map-pin"></i> Paris, France</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">"Santorini was a dream come true. Our cave suite had an infinity pool overlooking the caldera — absolute paradise. The sunset dinner they arranged was magical."</p>
+              <div class="review-trip"><i data-lucide="plane"></i> Santorini Escape · 2025</div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-header">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Kenji&backgroundColor=d1f0d0" alt="Kenji Tanaka" class="review-avatar" />
+                <div class="review-meta">
+                  <div class="review-name">Kenji Tanaka</div>
+                  <div class="review-location"><i data-lucide="map-pin"></i> Tokyo, Japan</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">"Our Bali cultural immersion exceeded every expectation. The temple ceremonies, rice terrace sunrise, and private jungle villa made this the greatest trip of our lives."</p>
+              <div class="review-trip"><i data-lucide="plane"></i> Bali Family Tour · 2025</div>
+            </div>
+
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prev-review" aria-label="Previous review"><i data-lucide="chevron-left"></i></button>
+            <div class="carousel-dots" id="carousel-dots">
+              <button class="dot active" data-idx="0" aria-label="Review 1"></button>
+              <button class="dot" data-idx="1" aria-label="Review 2"></button>
+              <button class="dot" data-idx="2" aria-label="Review 3"></button>
+              <button class="dot" data-idx="3" aria-label="Review 4"></button>
+            </div>
+            <button class="carousel-btn" id="next-review" aria-label="Next review"><i data-lucide="chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GALLERY ═══ -->
+    <section class="section gallery-section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-tag">✦ Travel Stories</div>
+          <h2 id="gallery-heading" class="section-title">Journey Gallery</h2>
+          <p class="section-subtitle">Moments captured by our community of explorers around the world.</p>
+        </div>
+        <div class="gallery-grid" data-gsap="fade-up">
+          <div class="gallery-item gallery-tall">
+            <img src="images/gallery_1.png" alt="Couple enjoying sunset infinity pool at luxury tropical resort" loading="lazy" />
+            <div class="gallery-hover"><i data-lucide="instagram"></i></div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery_2.png" alt="Venice gondola at sunset on romantic canal" loading="lazy" />
+            <div class="gallery-hover"><i data-lucide="instagram"></i></div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery_3.png" alt="Japanese cherry blossom Sakura with historic pagoda" loading="lazy" />
+            <div class="gallery-hover"><i data-lucide="instagram"></i></div>
+          </div>
+          <div class="gallery-item gallery-wide">
+            <img src="images/gallery_4.png" alt="Patagonia Torres del Paine dramatic mountain landscape" loading="lazy" />
+            <div class="gallery-hover"><i data-lucide="instagram"></i></div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery_5.png" alt="Morocco Marrakech colorful spice market medina" loading="lazy" />
+            <div class="gallery-hover"><i data-lucide="instagram"></i></div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gallery_6.png" alt="New Zealand Milford Sound misty fjord" loading="lazy" />
+            <div class="gallery-hover"><i data-lucide="instagram"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ NEWSLETTER ═══ -->
+    <section class="newsletter-section" aria-labelledby="newsletter-heading">
+      <div class="newsletter-bg">
+        <img src="images/newsletter_bg.png" alt="Aerial view of tropical paradise island" loading="lazy" />
+        <div class="newsletter-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="newsletter-content" data-gsap="fade-up">
+          <div class="section-tag light">✦ Stay Inspired</div>
+          <h2 id="newsletter-heading" class="newsletter-title">Never Miss A Journey</h2>
+          <p class="newsletter-subtitle">Get exclusive deals, curated itineraries, and hidden gems delivered to your inbox every week.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate aria-label="Newsletter subscription">
+            <div class="newsletter-input-wrap">
+              <i data-lucide="mail"></i>
+              <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Enter your email address" required autocomplete="email" />
+            </div>
+            <button type="submit" class="btn-subscribe" id="subscribe-btn">
+              <span>Subscribe</span>
+              <i data-lucide="send"></i>
+            </button>
+          </form>
+          <div class="newsletter-success" id="newsletter-success" aria-live="polite">
+            <i data-lucide="check-circle"></i> You're in! Watch for incredible journeys in your inbox.
+          </div>
+          <p class="newsletter-note">No spam, ever. Unsubscribe any time. We respect your privacy.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon">✦</span>
+            <span>AETHER <span>TRAVEL</span></span>
+          </div>
+          <p class="footer-tagline">Crafting extraordinary journeys for the discerning traveler since 2005.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Aether Travel on Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" class="social-link" aria-label="Aether Travel on Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" class="social-link" aria-label="Aether Travel on Twitter"><i data-lucide="twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Aether Travel on YouTube"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Destinations</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#destinations">Santorini, Greece</a></li>
+            <li><a href="#destinations">Maldives</a></li>
+            <li><a href="#destinations">Bali, Indonesia</a></li>
+            <li><a href="#destinations">Switzerland</a></li>
+            <li><a href="#destinations">Iceland</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-contact" role="list">
+            <li><i data-lucide="phone"></i> +91 98765 43210</li>
+            <li><i data-lucide="mail"></i> hello@aethertravel.com</li>
+            <li><i data-lucide="map-pin"></i> 42 Luxury Lane, Mumbai 400001</li>
+            <li class="footer-hours"><i data-lucide="clock"></i> Mon–Sun 24/7</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Aether Travel. All rights reserved. Crafted with ♥ for extraordinary travelers.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ BACK TO TOP ═══ -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i data-lucide="chevron-up"></i>
+  </button>
+
+  <!-- ═══ VIDEO MODAL ═══ -->
+  <div id="video-modal" class="modal" role="dialog" aria-modal="true" aria-label="Travel video" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close video"><i data-lucide="x"></i></button>
+      <div class="video-placeholder">
+        <i data-lucide="play-circle"></i>
+        <p>Aether Travel — Where Every Journey Becomes a Legend</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
